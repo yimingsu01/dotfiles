@@ -113,6 +113,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias lg="lazygit"
 alias datefm="date +\"%m_%d_%H_%M_%S\""
+alias ll="ls -al"
 export HOMEBREW_PREFIX="/opt/homebrew/"
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
 export HOMEBREW_REPOSITORY="/opt/homebrew"
@@ -121,11 +122,24 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/texlive/2025/bin/universal-darwin:$PATH"
 export PATH="/opt/codeql:$PATH"
+export PATH="/Users/yms/sdk/go1.23.0/bin:$PATH"
+export PATH="/Users/yms/go/bin:$PATH"
+
+PROMPT='%{$fg_bold[white]%}%n'
+PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%} '
+
+alias adark="ln -fs ~/.config/alacritty/themes/themes/github_dark.toml ~/.config/alacritty/themes/themes/_active.toml"
+alias alight="ln -fs ~/.config/alacritty/themes/themes/github_light.toml ~/.config/alacritty/themes/themes/_active.toml"
+func alatheme() {
+  ln -fs ~/.config/alacritty/themes/themes/$1.toml ~/.config/alacritty/themes/themes/_active.toml
+}
 
 
-PROMPT='%{$fg_bold[white]%}%n%{$fg[blue]%}@%{$fg_bold[yellow]%}%m'
-PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
-
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/yms/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
