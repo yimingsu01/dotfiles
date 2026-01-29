@@ -8,4 +8,4 @@ echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zshrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 sudo apt install build-essential -y
-brew install gcc
+brew install gcc kubectl helm fd fzf rg
