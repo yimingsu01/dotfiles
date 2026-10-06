@@ -5,6 +5,13 @@ return {
       enabled = function()
         return not vim.tbl_contains({ "markdown", "tex", "plaintex", "text" }, vim.bo.filetype)
       end,
+      sources = {
+        providers = {
+          snippets = {
+            enabled = false,
+          },
+        },
+      },
     },
   },
 }

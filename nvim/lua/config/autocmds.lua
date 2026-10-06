@@ -7,6 +7,20 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Forward SSH yanks to the connecting terminal's clipboard with OSC 52.
+if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup("user_ssh_clipboard", { clear = true }),
+    desc = "Copy SSH yanks to the client clipboard",
+    callback = function()
+      local event = vim.v.event
+      if event.operator == "y" and event.regname ~= "_" then
+        require("vim.ui.clipboard.osc52").copy("+")(event.regcontents)
+      end
+    end,
+  })
+end
+
 local autosave = vim.api.nvim_create_augroup("user_autosave", { clear = true })
 
 vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
