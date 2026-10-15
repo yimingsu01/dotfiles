@@ -14,7 +14,7 @@ config.initial_rows = 40
 config.font_size = 13
 
 config.font = wezterm.font_with_fallback({
-  { family = 'JetBrains Mono', weight = 'DemiBold' },
+  { family = 'IoskeleyMonoNL Nerd Font Mono', weight = 'Medium' },
   'Symbols Nerd Font Mono',
 })
 
@@ -22,7 +22,7 @@ function scheme_for_appearance(appearance)
   if appearance:find "Dark" then
     return '3024 (base16)'
   else
-    return "Solarized (light) (terminal.sexy)"
+    return "Catppuccin Latte"
   end
 end
 
@@ -34,6 +34,16 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
+
+config.keys = config.keys or {}
+table.insert(config.keys, {
+  key = 'P', mods = 'ALT|SHIFT',
+  action = wezterm.action.SendString('\x1b[112;4u'),
+})
+table.insert(config.keys, {
+  key = 'N', mods = 'ALT|SHIFT',
+  action = wezterm.action.SendString('\x1b[110;4u'),
+})
 
 
 return config
