@@ -1,0 +1,166 @@
+/* Shared sizes, including pinned tab rows */
+:root {
+  --tab-min-height: 22px !important;
+  --tab-height-with-margin-padding: 22px !important;
+  --tab-collapsed-background-width: 22px !important;
+  --tab-collapsed-width: 28px !important;
+  --tab-margin-inline-inner: 3px !important;
+  --tab-inner-inline-margin: 3px !important;
+  --tab-margin-block: 0px !important;
+  --sidebar-launcher-collapsed-width: 28px !important;
+  --sidebar-launcher-button-padding-inline: 3px !important;
+}
+
+/* Reduce the collapsed sidebar itself */
+#sidebar-main:not([expanded]),
+sidebar-main:not([expanded]),
+#sidebar-container:not([sidebar-launcher-expanded]):not([sidebar-panel-open]) {
+  width: 28px !important;
+  min-width: 28px !important;
+  max-width: 28px !important;
+  padding-inline: 0 !important;
+}
+
+/* Keep sidebar tool buttons small */
+#sidebar-main,
+sidebar-main {
+  --tab-min-height: 22px !important;
+  --button-size-icon: 22px !important;
+  --button-min-height: 22px !important;
+}
+
+/* Set actual heights, not only minimum heights */
+#tabbrowser-tabs[orient="vertical"] {
+  --icon-size: 14px !important;
+  --tab-padding-block-start: 0px !important;
+  --tab-padding-block-end: 0px !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] :is(
+  .tabbrowser-tab,
+  .tab-stack,
+  .tab-background,
+  .tab-content
+) {
+  box-sizing: border-box !important;
+  min-height: 22px !important;
+  height: 22px !important;
+  max-height: 22px !important;
+  margin-block: 0 !important;
+  padding-block: 0 !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-icon-image {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-content {
+  padding-inline: 7px !important;
+}
+
+/* Prevent the invisible close button from enlarging rows */
+#tabbrowser-tabs[orient="vertical"] .tab-close-button {
+  box-sizing: border-box !important;
+  width: 18px !important;
+  height: 18px !important;
+  padding: 2px !important;
+}
+
+/* Center the divider below pinned tabs */
+#vertical-pinned-tabs-splitter {
+  box-sizing: border-box !important;
+  width: 28px !important;
+  min-width: 28px !important;
+  max-width: 28px !important;
+  align-self: flex-start !important;
+  margin-inline: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+
+  background-image: linear-gradient(
+    currentColor, currentColor
+  ) !important;
+  background-size: 14px 2px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+#vertical-pinned-tabs-splitter {
+  background-position: calc(50%) center !important;
+}
+
+/* 14px close button with a 10px icon */
+#tabbrowser-tabs[orient="vertical"] .tab-close-button {
+  box-sizing: border-box !important;
+  width: 10px !important;
+  min-width: 10px !important;
+  height: 10px !important;
+  min-height: 10px !important;
+  padding: 2px !important;
+  align-self: center !important;
+}
+
+
+/* Compact top toolbar */
+#nav-bar {
+  --toolbarbutton-inner-padding: 0px !important;
+  --toolbarbutton-outer-padding: 0px !important;
+  --toolbarbutton-padding-inner: 0px !important;
+  --toolbarbutton-padding-outer: 0px !important;
+  min-height: 28px !important;
+  padding-block: 0 !important;
+}
+
+/* Button spacing */
+#nav-bar .toolbarbutton-1 {
+  min-width: 14px !important;
+  padding: 0 !important;
+  margin-inline: 1px !important;
+  align-self: center !important;
+}
+
+/* Plain buttons and extension button backgrounds */
+#nav-bar .toolbarbutton-1 > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-badge-stack {
+  box-sizing: border-box !important;
+  width: 22px !important;
+  height: 22px !important;
+  padding: 4px !important;
+}
+
+/* Icons inside extension buttons */
+#nav-bar .toolbarbutton-badge-stack > .toolbarbutton-icon {
+  width: 14px !important;
+  height: 14px !important;
+  padding: 0 !important;
+}
+
+/* Smaller address bar */
+#urlbar-container {
+  --urlbar-container-height: 28px !important;
+  --urlbar-min-height: 24px !important;
+  margin-block: 0 !important;
+  padding-block: 0 !important;
+}
+
+#urlbar {
+  --urlbar-height: 24px !important;
+  --urlbar-min-height: 24px !important;
+  font-size: 12px !important;
+}
+
+/* Address bar icons */
+#urlbar :is(
+  .urlbar-icon,
+  #identity-icon,
+  #tracking-protection-icon,
+  .identity-box-button image
+) {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+#urlbar .urlbar-page-action {
+  padding-inline: 3px !important;
+}
